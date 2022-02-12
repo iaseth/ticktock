@@ -3,13 +3,13 @@ import Marking from './Marking';
 
 
 export default function Markings () {
-	let radius = 210;
-	let dotSize = 8;
+	let radius = 270;
+	let dotSize = 10;
 	let dotSizePx = dotSize + "px";
 
 	let markingItems = Array(60).fill(0).map((x, i) => {
 		let markClass = "Marking absolute rounded-full";
-		markClass += (i % 5 === 0) ? " bg-red-500" : " bg-white";
+		markClass += (i % 5 === 0) ? " bg-indigo-900" : " bg-indigo-300";
 		let degree = i * 6;
 		let radian = degree * Math.PI / 180;
 		let left = Math.round(radius * Math.sin(radian));
