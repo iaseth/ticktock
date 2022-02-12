@@ -4,6 +4,7 @@ import CenterText from './CenterText';
 import Dial from './Dial';
 import MarkingDots from './MarkingDots';
 import SecondsCircle from './SecondsCircle';
+import ClockHand from './ClockHand';
 
 
 
@@ -59,6 +60,7 @@ export default function TickTock () {
 						<SecondsCircle x={date.getHours() * 5} radius={140} />
 						<SecondsCircle x={date.getMinutes()} radius={220} />
 						<SecondsCircle x={date.getSeconds()} radius={270} />
+						<ClockHand x={date.getSeconds()} />
 					</div>
 				</div>
 			</div>
