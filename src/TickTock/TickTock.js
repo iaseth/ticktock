@@ -22,6 +22,8 @@ export default function TickTock () {
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto bg-indigo-600 rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<MarkingDots radius={270} />
+						<Dial radius={240} bg="bg-indigo-700" />
+						<Dial radius={235} bg="bg-indigo-600" />
 						<Dial radius={170} bg="bg-indigo-700" />
 						<Dial radius={165} bg="bg-indigo-600" />
 						<Dial radius={160} bg="bg-indigo-700" />

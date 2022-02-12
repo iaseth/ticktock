@@ -9,9 +9,10 @@ export default function CenterText ({
 	date
 }) {
 
-	let hours = padZero(date.getHours());
-	let minutes = padZero(date.getMinutes());
-	let seconds = padZero(date.getSeconds());
+	const hours = padZero(date.getHours());
+	const minutes = padZero(date.getMinutes());
+	const seconds = padZero(date.getSeconds());
+	const month = date.toLocaleString('default', { month: 'long' });
 
 	return (
 		<div className="CenterText absolute flex h-full w-full text-white text-center">
@@ -25,6 +26,13 @@ export default function CenterText ({
 				</div>
 				<div className="py-1">
 					<div className="w-full h-1 bg-indigo-700"></div>
+				</div>
+				<div className="text-sm font-bold text-slate-100">
+					<span>{date.getDate()}</span>
+					<span> </span>
+					<span>{month}</span>
+					<span> </span>
+					<span>{date.getFullYear()}</span>
 				</div>
 			</div>
 		</div>
