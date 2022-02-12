@@ -5,7 +5,7 @@ export default function Dial ({
 	radius, bg
 }) {
 
-	let radiusPx = radius + "px";
+	let radiusPx = (radius * 2) + "px";
 	let style = {
 		width: radiusPx,
 		height: radiusPx

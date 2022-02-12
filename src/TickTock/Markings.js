@@ -6,7 +6,10 @@ export default function Markings ({
 	radius, dotSize, n, group_length
 }) {
 
+	if (dotSize === undefined) dotSize = 10;
+	if (n === undefined) n = 60;
 	if (group_length === undefined) group_length = 5;
+
 	let dotSizePx = dotSize + "px";
 	let step = 360 / n;
 
