@@ -25,6 +25,7 @@ export default function TickTock () {
 						<MarkingDots radius={270} />
 						<Dial radius={240} bg="bg-indigo-700" />
 						<Dial radius={235} bg="bg-indigo-600" />
+						<MarkingDots radius={220} dotSize={6} />
 						<Dial radius={170} bg="bg-indigo-700" />
 						<Dial radius={165} bg="bg-indigo-600" />
 						<Dial radius={160} bg="bg-indigo-700" />
@@ -33,7 +34,9 @@ export default function TickTock () {
 						<Dial radius={115} bg="bg-indigo-700" />
 						<Dial radius={110} bg="bg-indigo-600" />
 						<CenterText date={date} />
-						<SecondsCircle date={date} radius={270} />
+						<SecondsCircle x={date.getHours() * 5} radius={140} />
+						<SecondsCircle x={date.getMinutes()} radius={220} />
+						<SecondsCircle x={date.getSeconds()} radius={270} />
 					</div>
 				</div>
 			</div>
