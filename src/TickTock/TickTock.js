@@ -3,6 +3,7 @@ import React from 'react';
 import CenterText from './CenterText';
 import Dial from './Dial';
 import MarkingDots from './MarkingDots';
+import SecondsCircle from './SecondsCircle';
 
 
 
@@ -32,6 +33,7 @@ export default function TickTock () {
 						<Dial radius={115} bg="bg-indigo-700" />
 						<Dial radius={110} bg="bg-indigo-600" />
 						<CenterText date={date} />
+						<SecondsCircle date={date} radius={270} />
 					</div>
 				</div>
 			</div>
