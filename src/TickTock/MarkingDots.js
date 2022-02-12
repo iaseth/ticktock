@@ -1,8 +1,8 @@
-import Marking from './Marking';
+import MarkingDot from './MarkingDot';
 
 
 
-export default function Markings ({
+export default function MarkingDots ({
 	radius, dotSize, n, group_length
 }) {
 
@@ -14,7 +14,7 @@ export default function Markings ({
 	let step = 360 / n;
 
 	let markingItems = Array(n).fill(0).map((x, i) => {
-		let markClass = "Marking absolute rounded-full";
+		let markClass = "MarkingDot absolute rounded-full";
 		markClass += (i % group_length === 0) ? " bg-indigo-900" : " bg-indigo-300";
 		let degree = i * step;
 		let radian = degree * Math.PI / 180;
@@ -38,8 +38,8 @@ export default function Markings ({
 	};
 
 	return (
-		<div className="Markings absolute w-full h-full">
-			<div className="Markings relative top-1/2 left-1/2 bg-transparent w-20 h-20">
+		<div className="MarkingDots absolute w-full h-full">
+			<div className="relative top-1/2 left-1/2 bg-transparent w-20 h-20">
 				<div className="relative" style={dotContainerStyle}>
 					{markingItems}
 				</div>
