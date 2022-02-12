@@ -22,11 +22,13 @@ export default function TickTock () {
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto bg-indigo-600 rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<Markings radius={270} />
+						<Dial radius={170} bg="bg-indigo-700" />
+						<Dial radius={165} bg="bg-indigo-600" />
 						<Dial radius={160} bg="bg-indigo-700" />
-						<Dial radius={150} bg="bg-indigo-600" />
-						<Dial radius={140} bg="bg-indigo-700" />
-						<Markings radius={120} n={12} group_length={3} />
-						<Dial radius={100} bg="bg-indigo-600" />
+						<Markings radius={140} n={12} group_length={3} />
+						<Dial radius={120} bg="bg-indigo-600" />
+						<Dial radius={115} bg="bg-indigo-700" />
+						<Dial radius={110} bg="bg-indigo-600" />
 						<CenterText date={date} />
 					</div>
 				</div>
