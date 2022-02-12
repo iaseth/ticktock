@@ -1,10 +1,20 @@
-import Markings from './Markings';
-import Dial from './Dial';
+import React from 'react';
+
 import CenterText from './CenterText';
+import Dial from './Dial';
+import Markings from './Markings';
 
 
 
 export default function TickTock () {
+	let [date, setDate] = React.useState(new Date());
+
+	React.useEffect(() => {
+		const id = setInterval(function () {
+			setDate(new Date());
+		}, 1000);
+		return () => clearInterval(id);
+	}, []);
 
 	return (
 		<div className="min-h-screen bg-indigo-500 select-none flex flex-col overflow-hidden">
@@ -17,7 +27,7 @@ export default function TickTock () {
 						<Dial radius={140} bg="bg-indigo-700" />
 						<Markings radius={120} n={12} group_length={3} />
 						<Dial radius={100} bg="bg-indigo-600" />
-						<CenterText />
+						<CenterText date={date} />
 					</div>
 				</div>
 			</div>
