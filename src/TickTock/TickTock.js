@@ -59,8 +59,13 @@ export default function TickTock () {
 						<CenterText date={date} />
 						<SecondsCircle x={date.getHours() * 5} radius={140} />
 						<SecondsCircle x={date.getMinutes()} radius={220} />
+						<SecondsCircle x={date.getMinutes()} radius={320} />
 						<SecondsCircle x={date.getSeconds()} radius={270} />
+						<SecondsCircle x={date.getSeconds()} radius={320} />
 						<ClockHand x={date.getSeconds()} />
+						<ClockHand x={date.getSeconds()} padding={280} length={30} />
+						<ClockHand x={date.getMinutes()} length={48} />
+						<ClockHand x={date.getMinutes()} padding={230} length={75} />
 					</div>
 				</div>
 			</div>
