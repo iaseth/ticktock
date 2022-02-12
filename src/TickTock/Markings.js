@@ -2,15 +2,18 @@ import Marking from './Marking';
 
 
 
-export default function Markings () {
-	let radius = 270;
-	let dotSize = 10;
-	let dotSizePx = dotSize + "px";
+export default function Markings ({
+	radius, dotSize, n, group_length
+}) {
 
-	let markingItems = Array(60).fill(0).map((x, i) => {
+	if (group_length === undefined) group_length = 5;
+	let dotSizePx = dotSize + "px";
+	let step = 360 / n;
+
+	let markingItems = Array(n).fill(0).map((x, i) => {
 		let markClass = "Marking absolute rounded-full";
-		markClass += (i % 5 === 0) ? " bg-indigo-900" : " bg-indigo-300";
-		let degree = i * 6;
+		markClass += (i % group_length === 0) ? " bg-indigo-900" : " bg-indigo-300";
+		let degree = i * step;
 		let radian = degree * Math.PI / 180;
 		let left = Math.round(radius * Math.sin(radian));
 		let top = Math.round(-radius * Math.cos(radian));
