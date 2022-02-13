@@ -9,7 +9,8 @@ function padZero (x) {
 }
 
 export default function CenterText ({
-	date, currentBg
+	date, currentBg,
+	showAmPm, showSeconds, showWeekday, showDate
 }) {
 
 	const hours = padZero(date.getHours());
@@ -20,20 +21,20 @@ export default function CenterText ({
 	return (
 		<div className="CenterText absolute flex h-full w-full text-white text-center">
 			<div className="m-auto">
-				<div className="text-sm font-bold text-slate-100">
+				{showWeekday && <><div className="text-sm font-bold text-slate-100">
 					<span>{weekdays[date.getDay()]}</span>
 				</div>
 				<div className="py-2">
 					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
-				</div>
+				</div></>}
 				<div className="text-4xl">
-					<span>{hours}</span>
+					<span>{showAmPm ? hours % 12 : hours}</span>
 					<span className="relative bottom-1 px-1">:</span>
 					<span>{minutes}</span>
-					<span className="relative bottom-1 px-1">:</span>
-					<span>{seconds}</span>
+					{showSeconds && <><span className="relative bottom-1 px-1">:</span>
+					<span>{seconds}</span></>}
 				</div>
-				<div className="py-2">
+				{showDate && <><div className="py-2">
 					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
 				</div>
 				<div className="text-sm font-bold text-slate-100">
@@ -42,7 +43,7 @@ export default function CenterText ({
 					<span>{month}</span>
 					<span> </span>
 					<span>{date.getFullYear()}</span>
-				</div>
+				</div></>}
 			</div>
 		</div>
 	);

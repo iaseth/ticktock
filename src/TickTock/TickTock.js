@@ -21,6 +21,9 @@ export default function TickTock () {
 	let [showFooter, setShowFooter] = React.useState(true);
 
 	let [showAmPm, setShowAmPm] = React.useState(false);
+	let [showSeconds, setShowSeconds] = React.useState(true);
+	let [showWeekday, setShowWeekday] = React.useState(true);
+	let [showDate, setShowDate] = React.useState(true);
 
 	let seconds = date.getSeconds();
 	let minutes = date.getMinutes();
@@ -32,7 +35,15 @@ export default function TickTock () {
 	let currentBg = `hsl(${seconds * 6}, 60%, 50%)`;
 
 	let settingsProps = {
-		showAmPm, setShowAmPm
+		showAmPm, setShowAmPm,
+		showSeconds, setShowSeconds,
+		showWeekday, setShowWeekday,
+		showDate, setShowDate
+	};
+
+	let centerTextProps = {
+		date, currentBg,
+		showAmPm, showSeconds, showWeekday, showDate
 	};
 
 	React.useEffect(() => {
@@ -77,7 +88,7 @@ export default function TickTock () {
 						<MarkingDots radius={140} n={12} group_length={3} />
 						<Ring diameter="240px" thickness="5px" />
 						<Ring diameter="220px" thickness="110px" />
-						<CenterText date={date} currentBg={currentBg} />
+						<CenterText {...centerTextProps} />
 						<SecondsCircle x={hours * 5} radius={140} />
 
 						<ClockHand x={seconds} />
