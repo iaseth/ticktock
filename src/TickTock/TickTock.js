@@ -10,6 +10,9 @@ import MarkingDots from './MarkingDots';
 import SecondsCircle from './SecondsCircle';
 import ClockHand from './ClockHand';
 
+const project_URL = "https://github.com/iaseth/ticktock";
+const project_link = <a href={project_URL} target="_blank" rel="noreferrer" className="inline-block px-6 py-3 rounded font-bold text-base text-white bg-indigo-700 border-2 border-indigo-500 duration-300 hover:bg-indigo-800">iaseth | ticktock</a>;
+
 
 
 export default function TickTock () {
@@ -39,7 +42,7 @@ export default function TickTock () {
 		if (event.shiftKey) {
 			let key = event.key.toUpperCase();
 			switch (key) {
-				case "H": setShowFooter(showFooter => !showFooter); break;
+				case "A": setShowFooter(showFooter => !showFooter); break;
 				default: return;
 			}
 		}
@@ -55,12 +58,11 @@ export default function TickTock () {
 
 	return (
 		<div className="bg-indigo-500 select-none flex flex-col overflow-hidden">
-			<div className="flex grow md:min-h-screen py-12 min-h-screen" style={{backgroundColor: currentBg}}>
+
+			<div className="flex grow py-12 min-h-screen overflow-hidden" style={{backgroundColor: currentBg}}>
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<Ring diameter="500px" thickness="10px" />
-						<MarkingDots radius={550} />
-						<MarkingDots radius={400} />
 						<MarkingDots radius={270} />
 						<Ring diameter="470px" thickness="65px" />
 						<MarkingDots radius={220} dotSize={6} />
@@ -91,11 +93,17 @@ export default function TickTock () {
 					</div>
 				</div>
 			</div>
+
+			<div className="hidden md:block fixed bottom-12 right-12">
+				{project_link}
+			</div>
+
 			{showFooter && <footer className="">
-				<div className="text-white text-center mx-auto bg-indigo-600 px-12 py-20">
-					<a href="https://github.com/iaseth/ticktock" target="_blank" rel="noreferrer" className="text-base font-bold px-4 py-3 text-sm bg-indigo-700 duration-300 hover:bg-indigo-800">iaseth | ticktock</a>
+				<div className="text-white text-center mx-auto bg-slate-800 px-12 py-32 border-t-4 border-slate-800">
+					{project_link}
 				</div>
 			</footer>}
+
 		</div>
 	);
 }
