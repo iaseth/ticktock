@@ -5,7 +5,7 @@ export default function MarkingDot ({
 	radius, group_length, dotSizePx, step, index
 }) {
 
-	let markClass = "MarkingDot absolute rounded-full";
+	let markClass = "MarkingDot absolute rounded-full shadow";
 	markClass += (index % group_length === 0) ? " bg-indigo-900" : " bg-indigo-300";
 	let degree = index * step;
 	let radian = degree * Math.PI / 180;

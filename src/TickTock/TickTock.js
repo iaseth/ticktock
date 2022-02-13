@@ -1,4 +1,5 @@
 import React from 'react';
+import colorita from 'colorita';
 
 import CenterText from './CenterText';
 import Dial from './Dial';
@@ -11,6 +12,12 @@ import ClockHand from './ClockHand';
 export default function TickTock () {
 	let [date, setDate] = React.useState(new Date());
 	let [showFooter, setShowFooter] = React.useState(true);
+
+	let seconds = date.getSeconds();
+	let minutes = date.getMinutes();
+	let hours = date.getHours();
+
+	let bgColor = `hsl(${seconds * 6}, 75%, 50%)`;
 
 	React.useEffect(() => {
 		const id = setInterval(function () {
@@ -42,9 +49,10 @@ export default function TickTock () {
 
 	return (
 		<div className="bg-indigo-500 select-none flex flex-col overflow-hidden">
-			<div className="flex grow md:min-h-screen py-12 min-h-screen">
+			<div className="flex grow md:min-h-screen py-12 min-h-screen" style={{backgroundColor: bgColor}}>
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
-					<div className="w-[500px] h-[500px] m-auto bg-indigo-600 rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
+					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
+						<Dial radius={250} bg="bg-indigo-700" />
 						<MarkingDots radius={270} />
 						<Dial radius={240} bg="bg-indigo-700" />
 						<Dial radius={235} bg="bg-indigo-600" />
@@ -57,15 +65,15 @@ export default function TickTock () {
 						<Dial radius={115} bg="bg-indigo-700" />
 						<Dial radius={110} bg="bg-indigo-600" />
 						<CenterText date={date} />
-						<SecondsCircle x={date.getHours() * 5} radius={140} />
-						<SecondsCircle x={date.getMinutes()} radius={220} />
-						<SecondsCircle x={date.getMinutes()} radius={320} />
-						<SecondsCircle x={date.getSeconds()} radius={270} />
-						<SecondsCircle x={date.getSeconds()} radius={320} />
-						<ClockHand x={date.getSeconds()} />
-						<ClockHand x={date.getSeconds()} padding={280} length={30} />
-						<ClockHand x={date.getMinutes()} length={48} />
-						<ClockHand x={date.getMinutes()} padding={230} length={75} />
+						<SecondsCircle x={hours * 5} radius={140} />
+						<SecondsCircle x={minutes} radius={220} />
+						<SecondsCircle x={minutes} radius={320} />
+						<SecondsCircle x={seconds} radius={270} />
+						<SecondsCircle x={seconds} radius={320} />
+						<ClockHand x={seconds} />
+						<ClockHand x={seconds} padding={280} length={30} />
+						<ClockHand x={minutes} length={48} />
+						<ClockHand x={minutes} padding={230} length={75} />
 					</div>
 				</div>
 			</div>
