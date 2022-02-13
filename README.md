@@ -1,5 +1,11 @@
 
-# react-starter
+# [Ticktock](https://iaseth.github.io/ticktock)
+
+<img src="https://raw.githubusercontent.com/iaseth/ticktock/master/img/ticktock-13F22.png">
+
+
+
+# [react-starter](https://github.com/iaseth/react-starter)
 
 This is the template I use to start my React projects.
 
