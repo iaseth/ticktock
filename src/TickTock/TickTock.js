@@ -20,6 +20,9 @@ export default function TickTock () {
 	let minutes = date.getMinutes();
 	let hours = date.getHours();
 
+	let secondsPlus30 = (seconds + 30) % 60;
+	let minutesPlus30 = (minutes + 30) % 60;
+
 	let currentBg = `hsl(${seconds * 6}, 60%, 50%)`;
 
 	React.useEffect(() => {
@@ -65,14 +68,22 @@ export default function TickTock () {
 						<Ring diameter="220px" thickness="110px" />
 						<CenterText date={date} currentBg={currentBg} />
 						<SecondsCircle x={hours * 5} radius={140} />
-						<SecondsCircle x={minutes} radius={220} />
-						<SecondsCircle x={minutes} radius={320} />
+
 						<SecondsCircle x={seconds} radius={270} />
 						<SecondsCircle x={seconds} radius={320} />
 						<ClockHand x={seconds} />
 						<ClockHand x={seconds} padding={280} length={30} />
+
+						<SecondsCircle x={secondsPlus30} radius={270} />
+						<ClockHand x={secondsPlus30} />
+
+						<SecondsCircle x={minutes} radius={220} />
+						<SecondsCircle x={minutes} radius={320} />
 						<ClockHand x={minutes} length={48} />
 						<ClockHand x={minutes} padding={230} length={78} />
+
+						<SecondsCircle x={minutesPlus30} radius={220} />
+						<ClockHand x={minutesPlus30} length={48} />
 					</div>
 				</div>
 			</div>
