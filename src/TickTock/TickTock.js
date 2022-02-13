@@ -3,6 +3,7 @@ import colorita from 'colorita';
 
 import CenterText from './CenterText';
 import Dial from './Dial';
+import Ring from './Ring';
 import MarkingDots from './MarkingDots';
 import SecondsCircle from './SecondsCircle';
 import ClockHand from './ClockHand';
@@ -17,7 +18,7 @@ export default function TickTock () {
 	let minutes = date.getMinutes();
 	let hours = date.getHours();
 
-	let bgColor = `hsl(${seconds * 6}, 75%, 50%)`;
+	let currentBg = `hsl(${seconds * 6}, 75%, 50%)`;
 
 	React.useEffect(() => {
 		const id = setInterval(function () {
@@ -49,22 +50,18 @@ export default function TickTock () {
 
 	return (
 		<div className="bg-indigo-500 select-none flex flex-col overflow-hidden">
-			<div className="flex grow md:min-h-screen py-12 min-h-screen" style={{backgroundColor: bgColor}}>
+			<div className="flex grow md:min-h-screen py-12 min-h-screen" style={{backgroundColor: currentBg}}>
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
-						<Dial radius={250} bg="bg-indigo-700" />
+						<Ring diameter="500px" thickness="10px" />
 						<MarkingDots radius={270} />
-						<Dial radius={240} bg="bg-indigo-700" />
-						<Dial radius={235} bg="bg-indigo-600" />
+						<Ring diameter="475px" thickness="65px" />
 						<MarkingDots radius={220} dotSize={6} />
-						<Dial radius={170} bg="bg-indigo-700" />
-						<Dial radius={165} bg="bg-indigo-600" />
-						<Dial radius={160} bg="bg-indigo-700" />
+						<Ring diameter="340px" thickness="5px" />
 						<MarkingDots radius={140} n={12} group_length={3} />
-						<Dial radius={120} bg="bg-indigo-600" />
-						<Dial radius={115} bg="bg-indigo-700" />
-						<Dial radius={110} bg="bg-indigo-600" />
-						<CenterText date={date} />
+						<Ring diameter="235px" thickness="5px" />
+						<Ring diameter="220px" thickness="110px" />
+						<CenterText date={date} currentBg={currentBg} />
 						<SecondsCircle x={hours * 5} radius={140} />
 						<SecondsCircle x={minutes} radius={220} />
 						<SecondsCircle x={minutes} radius={320} />

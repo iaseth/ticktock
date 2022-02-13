@@ -1,12 +1,15 @@
 
 
+const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+
 
 function padZero (x) {
 	return (x < 10) ? "0" + x : x;
 }
 
 export default function CenterText ({
-	date
+	date, currentBg
 }) {
 
 	const hours = padZero(date.getHours());
@@ -17,6 +20,12 @@ export default function CenterText ({
 	return (
 		<div className="CenterText absolute flex h-full w-full text-white text-center">
 			<div className="m-auto">
+				<div className="text-sm font-bold text-slate-100">
+					<span>{weekdays[date.getDay()]}</span>
+				</div>
+				<div className="py-1 px-6">
+					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
+				</div>
 				<div className="text-4xl">
 					<span>{hours}</span>
 					<span>:</span>
@@ -25,7 +34,7 @@ export default function CenterText ({
 					<span>{seconds}</span>
 				</div>
 				<div className="py-1">
-					<div className="w-full h-1 bg-indigo-700"></div>
+					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
 				</div>
 				<div className="text-sm font-bold text-slate-100">
 					<span>{date.getDate()}</span>
