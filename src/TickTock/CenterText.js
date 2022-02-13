@@ -23,17 +23,17 @@ export default function CenterText ({
 				<div className="text-sm font-bold text-slate-100">
 					<span>{weekdays[date.getDay()]}</span>
 				</div>
-				<div className="py-1 px-6">
+				<div className="py-2">
 					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
 				</div>
-				<div className="text-4xl">
+				<div className="text-4xl py-1">
 					<span>{hours}</span>
 					<span>:</span>
 					<span>{minutes}</span>
 					<span>:</span>
 					<span>{seconds}</span>
 				</div>
-				<div className="py-1">
+				<div className="py-2">
 					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
 				</div>
 				<div className="text-sm font-bold text-slate-100">

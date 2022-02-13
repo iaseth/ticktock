@@ -1,6 +1,8 @@
 import React from 'react';
 import colorita from 'colorita';
 
+import './TickTock.css';
+
 import CenterText from './CenterText';
 import Dial from './Dial';
 import Ring from './Ring';
@@ -18,7 +20,7 @@ export default function TickTock () {
 	let minutes = date.getMinutes();
 	let hours = date.getHours();
 
-	let currentBg = `hsl(${seconds * 6}, 75%, 50%)`;
+	let currentBg = `hsl(${seconds * 6}, 60%, 50%)`;
 
 	React.useEffect(() => {
 		const id = setInterval(function () {
@@ -55,11 +57,11 @@ export default function TickTock () {
 					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<Ring diameter="500px" thickness="10px" />
 						<MarkingDots radius={270} />
-						<Ring diameter="475px" thickness="65px" />
+						<Ring diameter="470px" thickness="65px" />
 						<MarkingDots radius={220} dotSize={6} />
-						<Ring diameter="340px" thickness="5px" />
+						<Ring diameter="330px" thickness="5px" />
 						<MarkingDots radius={140} n={12} group_length={3} />
-						<Ring diameter="235px" thickness="5px" />
+						<Ring diameter="240px" thickness="5px" />
 						<Ring diameter="220px" thickness="110px" />
 						<CenterText date={date} currentBg={currentBg} />
 						<SecondsCircle x={hours * 5} radius={140} />
