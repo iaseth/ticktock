@@ -59,6 +59,8 @@ export default function TickTock () {
 				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<Ring diameter="500px" thickness="10px" />
+						<MarkingDots radius={550} />
+						<MarkingDots radius={400} />
 						<MarkingDots radius={270} />
 						<Ring diameter="470px" thickness="65px" />
 						<MarkingDots radius={220} dotSize={6} />
@@ -69,18 +71,20 @@ export default function TickTock () {
 						<CenterText date={date} currentBg={currentBg} />
 						<SecondsCircle x={hours * 5} radius={140} />
 
-						<SecondsCircle x={seconds} radius={270} />
-						<SecondsCircle x={seconds} radius={320} />
 						<ClockHand x={seconds} />
+						<SecondsCircle x={seconds} radius={270} />
 						<ClockHand x={seconds} padding={280} length={30} />
+						<SecondsCircle x={seconds} radius={320} />
+						<ClockHand x={seconds} padding={330} length={60} />
+						<SecondsCircle x={seconds} radius={400} />
 
 						<SecondsCircle x={secondsPlus30} radius={270} />
 						<ClockHand x={secondsPlus30} />
 
-						<SecondsCircle x={minutes} radius={220} />
-						<SecondsCircle x={minutes} radius={320} />
 						<ClockHand x={minutes} length={48} />
-						<ClockHand x={minutes} padding={230} length={78} />
+						<SecondsCircle x={minutes} radius={220} />
+						<ClockHand x={minutes} padding={230} length={28} />
+						<SecondsCircle x={minutes} radius={270} />
 
 						<SecondsCircle x={minutesPlus30} radius={220} />
 						<ClockHand x={minutesPlus30} length={48} />
