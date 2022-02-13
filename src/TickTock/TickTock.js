@@ -72,7 +72,7 @@ export default function TickTock () {
 						<ClockHand x={seconds} />
 						<ClockHand x={seconds} padding={280} length={30} />
 						<ClockHand x={minutes} length={48} />
-						<ClockHand x={minutes} padding={230} length={75} />
+						<ClockHand x={minutes} padding={230} length={78} />
 					</div>
 				</div>
 			</div>

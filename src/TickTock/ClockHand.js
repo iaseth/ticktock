@@ -26,7 +26,7 @@ export default function ClockHand ({
 	return (
 		<div className="ClockHand absolute w-full h-full">
 			<div className="relative top-1/2 left-1/2 bg-transparent w-0 h-0 duration-300" style={parentStyle}>
-				<div className="relative bg-slate-300 border-slate-200 duration-300" style={style}></div>
+				<div className="relative bg-slate-300 duration-300" style={style}></div>
 			</div>
 		</div>
 	);

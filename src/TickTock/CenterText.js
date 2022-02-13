@@ -26,11 +26,11 @@ export default function CenterText ({
 				<div className="py-2">
 					<div className="w-full h-1" style={{backgroundColor: currentBg}}></div>
 				</div>
-				<div className="text-4xl py-1">
+				<div className="text-4xl">
 					<span>{hours}</span>
-					<span>:</span>
+					<span className="relative bottom-1 px-1">:</span>
 					<span>{minutes}</span>
-					<span>:</span>
+					<span className="relative bottom-1 px-1">:</span>
 					<span>{seconds}</span>
 				</div>
 				<div className="py-2">

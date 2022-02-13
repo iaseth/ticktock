@@ -21,7 +21,7 @@ export default function SecondsCircle ({
 	return (
 		<div className="SecondsCircle absolute w-full h-full">
 			<div className="relative top-1/2 left-1/2 bg-transparent">
-				<div className="absolute bg-transparent border-slate-200 rounded-full -translate-x-1/2 -translate-y-1/2 duration-300" style={style}></div>
+				<div className="absolute bg-transparent border-slate-300 rounded-full -translate-x-1/2 -translate-y-1/2 duration-300" style={style}></div>
 			</div>
 		</div>
 	);
