@@ -3,6 +3,7 @@ import colorita from 'colorita';
 
 import './TickTock.css';
 
+import Settings from './Settings';
 import CenterText from './CenterText';
 import Dial from './Dial';
 import Ring from './Ring';
@@ -19,6 +20,8 @@ export default function TickTock () {
 	let [date, setDate] = React.useState(new Date());
 	let [showFooter, setShowFooter] = React.useState(true);
 
+	let [showAmPm, setShowAmPm] = React.useState(false);
+
 	let seconds = date.getSeconds();
 	let minutes = date.getMinutes();
 	let hours = date.getHours();
@@ -27,6 +30,10 @@ export default function TickTock () {
 	let minutesPlus30 = (minutes + 30) % 60;
 
 	let currentBg = `hsl(${seconds * 6}, 60%, 50%)`;
+
+	let settingsProps = {
+		showAmPm, setShowAmPm
+	};
 
 	React.useEffect(() => {
 		const id = setInterval(function () {
@@ -98,8 +105,9 @@ export default function TickTock () {
 				{project_link}
 			</div>
 
-			{showFooter && <footer className="">
-				<div className="text-white text-center mx-auto bg-slate-800 px-12 py-32 border-t-4 border-slate-800">
+			{showFooter && <footer className="bg-slate-800 py-28">
+				<Settings {...settingsProps} />
+				<div className="text-white text-center mx-auto px-6 py-16 border-t-4 border-slate-800">
 					{project_link}
 				</div>
 			</footer>}
