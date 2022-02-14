@@ -11,6 +11,8 @@ import MarkingDots from './MarkingDots';
 import SecondsCircle from './SecondsCircle';
 import ClockHand from './ClockHand';
 
+import Turbine from './Animations/Turbine';
+
 const project_URL = "https://github.com/iaseth/ticktock";
 const project_link = <a href={project_URL} target="_blank" rel="noreferrer" className="inline-block px-6 py-3 rounded font-bold text-base text-white bg-indigo-700 border-2 border-indigo-500 duration-300 hover:bg-indigo-800">iaseth | ticktock</a>;
 
@@ -25,6 +27,7 @@ export default function TickTock () {
 	let [showWeekday, setShowWeekday] = React.useState(true);
 	let [showDate, setShowDate] = React.useState(true);
 	let [ticktick, setTicktick] = React.useState(true);
+	let [showTurbines, setShowTurbines] = React.useState(false);
 
 	let seconds = date.getSeconds();
 	let minutes = date.getMinutes();
@@ -40,7 +43,8 @@ export default function TickTock () {
 		showSeconds, setShowSeconds,
 		showWeekday, setShowWeekday,
 		showDate, setShowDate,
-		ticktick, setTicktick
+		ticktick, setTicktick,
+		showTurbines, setShowTurbines
 	};
 
 	let centerTextProps = {
@@ -111,6 +115,10 @@ export default function TickTock () {
 						<SecondsCircle x={minutesPlus30} radius={220} />
 						<ClockHand x={minutesPlus30} length={48} />
 					</div>
+				</div>
+
+				<div className="Animations absolute bottom-0 w-full">
+					{showTurbines && <Turbine />}
 				</div>
 
 			</div>

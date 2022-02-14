@@ -1,8 +1,9 @@
 module.exports = {
   content: [
     "src/*.{js,json}",
-    "src/*/*.js",
-    "src/*/*/*.js"
+    "src/TickTock/*.js",
+    "src/TickTock/*/*.js",
+    "src/TickTock/*/*/*.js"
   ],
   theme: {
     extend: {},

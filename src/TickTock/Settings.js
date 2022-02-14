@@ -7,7 +7,8 @@ export default function Settings ({
 	showSeconds, setShowSeconds,
 	showWeekday, setShowWeekday,
 	showDate, setShowDate,
-	ticktick, setTicktick
+	ticktick, setTicktick,
+	showTurbines, setShowTurbines
 }) {
 
 	return (
@@ -19,6 +20,7 @@ export default function Settings ({
 				<Toggle x={showWeekday} setX={setShowWeekday} title="Weekday" />
 				<Toggle x={showDate} setX={setShowDate} title="Date" />
 				<Toggle x={ticktick} setX={setTicktick} title="Tick-tick" />
+				<Toggle x={showTurbines} setX={setShowTurbines} title="Turbine" />
 			</div>
 		</div>
 	);
