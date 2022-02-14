@@ -24,6 +24,7 @@ export default function TickTock () {
 	let [showSeconds, setShowSeconds] = React.useState(true);
 	let [showWeekday, setShowWeekday] = React.useState(true);
 	let [showDate, setShowDate] = React.useState(true);
+	let [ticktick, setTicktick] = React.useState(true);
 
 	let seconds = date.getSeconds();
 	let minutes = date.getMinutes();
@@ -38,7 +39,8 @@ export default function TickTock () {
 		showAmPm, setShowAmPm,
 		showSeconds, setShowSeconds,
 		showWeekday, setShowWeekday,
-		showDate, setShowDate
+		showDate, setShowDate,
+		ticktick, setTicktick
 	};
 
 	let centerTextProps = {
@@ -78,7 +80,7 @@ export default function TickTock () {
 		<div className="bg-indigo-500 select-none flex flex-col overflow-hidden">
 
 			<div className="flex grow py-12 min-h-screen overflow-hidden" style={{backgroundColor: currentBg}}>
-				<div className="m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
+				<div className="relative z-10 m-auto bg-red-300 w-0 h-0 scale-[0.50] md:scale-100">
 					<div className="w-[500px] h-[500px] m-auto rounded-full flex relative -translate-y-1/2 -translate-x-1/2">
 						<Ring diameter="500px" thickness="10px" />
 						<MarkingDots radius={270} />
@@ -91,15 +93,15 @@ export default function TickTock () {
 						<CenterText {...centerTextProps} />
 						<SecondsCircle x={hours * 5} radius={140} />
 
-						<ClockHand x={seconds} />
-						<SecondsCircle x={seconds} radius={270} />
-						<ClockHand x={seconds} padding={280} length={30} />
-						<SecondsCircle x={seconds} radius={320} />
-						<ClockHand x={seconds} padding={330} length={60} />
-						<SecondsCircle x={seconds} radius={400} />
+						<ClockHand x={seconds} ticktick={ticktick} />
+						<SecondsCircle x={seconds} radius={270} ticktick={ticktick} />
+						<ClockHand x={seconds} padding={280} length={30} ticktick={ticktick} />
+						<SecondsCircle x={seconds} radius={320} ticktick={ticktick} />
+						<ClockHand x={seconds} padding={330} length={60} ticktick={ticktick} />
+						<SecondsCircle x={seconds} radius={400} ticktick={ticktick} />
 
-						<SecondsCircle x={secondsPlus30} radius={270} />
-						<ClockHand x={secondsPlus30} />
+						<SecondsCircle x={secondsPlus30} radius={270} ticktick={ticktick} />
+						<ClockHand x={secondsPlus30} ticktick={ticktick} />
 
 						<ClockHand x={minutes} length={48} />
 						<SecondsCircle x={minutes} radius={220} />
@@ -110,6 +112,7 @@ export default function TickTock () {
 						<ClockHand x={minutesPlus30} length={48} />
 					</div>
 				</div>
+
 			</div>
 
 			<div className="hidden md:block fixed bottom-12 right-12">
