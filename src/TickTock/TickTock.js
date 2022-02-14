@@ -24,6 +24,7 @@ export default function TickTock () {
 	let [showFooter, setShowFooter] = React.useState(true);
 	let [showGitHub, setShowGitHub] = React.useState(true);
 
+	let [showFullHand, setShowFullHand] = React.useState(false);
 	let [showAmPm, setShowAmPm] = React.useState(false);
 	let [showSeconds, setShowSeconds] = React.useState(true);
 	let [showWeekday, setShowWeekday] = React.useState(true);
@@ -42,13 +43,16 @@ export default function TickTock () {
 	let currentBg = `hsl(${seconds * 6}, 60%, 50%)`;
 
 	let settingsProps = {
+		showFooter, setShowFooter,
+		showGitHub, setShowGitHub,
+
+		showFullHand, setShowFullHand,
 		showAmPm, setShowAmPm,
 		showSeconds, setShowSeconds,
 		showWeekday, setShowWeekday,
 		showDate, setShowDate,
 		ticktick, setTicktick,
-		showFooter, setShowFooter,
-		showGitHub, setShowGitHub,
+
 		showTurbines, setShowTurbines
 	};
 
@@ -109,16 +113,16 @@ export default function TickTock () {
 						<ClockHand x={seconds} padding={330} length={60} ticktick={ticktick} />
 						<SecondsCircle x={seconds} radius={400} ticktick={ticktick} />
 
-						<SecondsCircle x={secondsPlus30} radius={270} ticktick={ticktick} />
-						<ClockHand x={secondsPlus30} ticktick={ticktick} />
+						{showFullHand && <SecondsCircle x={secondsPlus30} radius={220} ticktick={ticktick} />}
+						{showFullHand && <ClockHand x={secondsPlus30} length={48} ticktick={ticktick} />}
 
 						<ClockHand x={minutes} length={48} />
 						<SecondsCircle x={minutes} radius={220} />
 						<ClockHand x={minutes} padding={230} length={28} />
 						<SecondsCircle x={minutes} radius={270} />
 
-						<SecondsCircle x={minutesPlus30} radius={220} />
-						<ClockHand x={minutesPlus30} length={48} />
+						{showFullHand && <SecondsCircle x={minutesPlus30} radius={220} />}
+						{showFullHand && <ClockHand x={minutesPlus30} length={48} />}
 					</div>
 				</div>
 

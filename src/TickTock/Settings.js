@@ -3,13 +3,16 @@ import Toggle from './Toggle';
 
 
 export default function Settings ({
+	showFooter, setShowFooter,
+	showGitHub, setShowGitHub,
+
+	showFullHand, setShowFullHand,
 	showAmPm, setShowAmPm,
 	showSeconds, setShowSeconds,
 	showWeekday, setShowWeekday,
 	showDate, setShowDate,
 	ticktick, setTicktick,
-	showFooter, setShowFooter,
-	showGitHub, setShowGitHub,
+
 	showTurbines, setShowTurbines
 }) {
 
@@ -24,6 +27,7 @@ export default function Settings ({
 				<Toggle x={showGitHub} setX={setShowGitHub} title="GitHub" />
 
 				<h3 className={sectionHeadingClass}>Clock</h3>
+				<Toggle x={showFullHand} setX={setShowFullHand} title="Fullhand" />
 				<Toggle x={showAmPm} setX={setShowAmPm} title="12 | 24 H" />
 				<Toggle x={showSeconds} setX={setShowSeconds} title="Seconds" />
 				<Toggle x={showWeekday} setX={setShowWeekday} title="Weekday" />
