@@ -20,14 +20,16 @@ const project_link = <a href={project_URL} target="_blank" rel="noreferrer" clas
 
 export default function TickTock () {
 	let [date, setDate] = React.useState(new Date());
+
 	let [showFooter, setShowFooter] = React.useState(true);
+	let [showGitHub, setShowGitHub] = React.useState(true);
 
 	let [showAmPm, setShowAmPm] = React.useState(false);
 	let [showSeconds, setShowSeconds] = React.useState(true);
 	let [showWeekday, setShowWeekday] = React.useState(true);
 	let [showDate, setShowDate] = React.useState(true);
 	let [ticktick, setTicktick] = React.useState(true);
-	let [showGitHub, setShowGitHub] = React.useState(true);
+
 	let [showTurbines, setShowTurbines] = React.useState(false);
 
 	let seconds = date.getSeconds();
