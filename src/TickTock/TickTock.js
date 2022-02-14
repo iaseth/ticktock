@@ -27,6 +27,7 @@ export default function TickTock () {
 	let [showWeekday, setShowWeekday] = React.useState(true);
 	let [showDate, setShowDate] = React.useState(true);
 	let [ticktick, setTicktick] = React.useState(true);
+	let [showGitHub, setShowGitHub] = React.useState(true);
 	let [showTurbines, setShowTurbines] = React.useState(false);
 
 	let seconds = date.getSeconds();
@@ -44,6 +45,8 @@ export default function TickTock () {
 		showWeekday, setShowWeekday,
 		showDate, setShowDate,
 		ticktick, setTicktick,
+		showFooter, setShowFooter,
+		showGitHub, setShowGitHub,
 		showTurbines, setShowTurbines
 	};
 
@@ -123,9 +126,9 @@ export default function TickTock () {
 
 			</div>
 
-			<div className="hidden md:block fixed bottom-12 right-12">
+			{showGitHub && <div className="hidden md:block fixed bottom-12 right-12">
 				{project_link}
-			</div>
+			</div>}
 
 			{showFooter && <footer className="bg-slate-800 py-28">
 				<Settings {...settingsProps} />

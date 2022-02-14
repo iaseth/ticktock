@@ -8,6 +8,8 @@ export default function Settings ({
 	showWeekday, setShowWeekday,
 	showDate, setShowDate,
 	ticktick, setTicktick,
+	showFooter, setShowFooter,
+	showGitHub, setShowGitHub,
 	showTurbines, setShowTurbines
 }) {
 
@@ -20,6 +22,8 @@ export default function Settings ({
 				<Toggle x={showWeekday} setX={setShowWeekday} title="Weekday" />
 				<Toggle x={showDate} setX={setShowDate} title="Date" />
 				<Toggle x={ticktick} setX={setTicktick} title="Tick-tick" />
+				<Toggle x={showFooter} setX={setShowFooter} title="Footer" />
+				<Toggle x={showGitHub} setX={setShowGitHub} title="GitHub" />
 				<Toggle x={showTurbines} setX={setShowTurbines} title="Turbine" />
 			</div>
 		</div>
